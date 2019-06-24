@@ -11,17 +11,24 @@ namespace ProjectBlogs.Models
     public class Blog
     {
         [Key]
+        [Display(Name="ID")]
         public int Id { get; set; }
         [MaxLength(100)]
         [Required]
+        [Display(Name="Назва")]
         public string Name { get; set; }
         [Required]
+        [Display(Name = "Заговолок")]
         public string Description { get; set; }
         [Required]
+        [Display(Name = "Опис")]
         public string Content { get; set; }
-        public DateTime Date { get; set; }
+        [Display(Name = "Час")]
+        public DateTime? Date { get; set; } = DateTime.Now;
         [NotMapped]
+        [Display(Name = "Фото")]
         public IFormFile Photo { get; set; }
+        [Display(Name = "Адрес фото")]
         public string PhotoUrl { get; set; }
     }
 }

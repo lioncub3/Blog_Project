@@ -18,31 +18,34 @@ and is wrapped around the whole page content, except for the footer in this exam
         <!-- Blog entries -->
         <div class="w3-col l8 s12">
             <!-- Blog entry -->
-            @foreach (var blog in Model)
+            @if (Model != null)
             {
-                <div class="w3-card-4 w3-margin w3-white">
-                    <img src="~/images/@blog.PhotoUrl" alt="Norway" style="width:100%">
-                    <div class="w3-container">
-                        <h3><b>@blog.Name</b></h3>
-                        <h5>@blog.Description <span class="w3-opacity">@blog.Date.ToString("dd MMMM yyyy")</span></h5>
-                    </div>
+                @foreach (var blog in Model)
+                {
+                    <div class="w3-card-4 w3-margin w3-white">
+                        <img src="~/images/@blog.PhotoUrl" alt="Norway" style="width:100%">
+                        <div class="w3-container">
+                            <h3><b>@blog.Name</b></h3>
+                            <h5>@blog.Description <span class="w3-opacity">@blog.Date.ToString("dd MMMM yyyy")</span></h5>
+                        </div>
 
-                    <div class="w3-container">
-                        <p>
-                            @blog.Content
-                        </p>
-                        <div class="w3-row">
-                            <div class="w3-col m8 s12">
-                                <p><button class="w3-button w3-padding-large w3-white w3-border"><b>Читати далі »</b></button></p>
-                            </div>
-                            <div class="w3-col m4 w3-hide-small">
-                                <p><span class="w3-padding-large w3-right"><b>Коментарії  </b> <span class="w3-badge">2</span></span></p>
+                        <div class="w3-container">
+                            <p>
+                                @blog.Content
+                            </p>
+                            <div class="w3-row">
+                                <div class="w3-col m8 s12">
+                                    <p><button class="w3-button w3-padding-large w3-white w3-border"><b>Читати далі »</b></button></p>
+                                </div>
+                                <div class="w3-col m4 w3-hide-small">
+                                    <p><span class="w3-padding-large w3-right"><b>Коментарії  </b> <span class="w3-badge">2</span></span></p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <!-- END BLOG ENTRIES -->
-                <hr>
+                    <!-- END BLOG ENTRIES -->
+                    <hr>
+                }
             }
         </div>
 

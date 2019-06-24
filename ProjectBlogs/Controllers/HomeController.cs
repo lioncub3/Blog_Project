@@ -4,15 +4,23 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using ProjectBlogs.Data;
 using ProjectBlogs.Models;
 
 namespace ProjectBlogs.Controllers
 {
     public class HomeController : Controller
     {
+        private BlogsContext db;
+
+        public HomeController(BlogsContext db)
+        {
+            this.db = db;
+        }
+
         public IActionResult Index()
         {
-            return View();
+            return View(db.Blogs.ToList());
         }
 
         public IActionResult About()

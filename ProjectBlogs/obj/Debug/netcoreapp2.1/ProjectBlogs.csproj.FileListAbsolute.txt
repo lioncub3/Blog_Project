@@ -30,3 +30,7 @@ C:\Users\lioncub3\source\repos\ProjectBlogs\ProjectBlogs\obj\Debug\netcoreapp2.1
 C:\Users\lioncub3\source\repos\ProjectBlogs\ProjectBlogs\obj\Debug\netcoreapp2.1\ProjectBlogs.dll
 C:\Users\lioncub3\source\repos\ProjectBlogs\ProjectBlogs\obj\Debug\netcoreapp2.1\ProjectBlogs.pdb
 C:\Users\lioncub3\source\repos\ProjectBlogs\ProjectBlogs\obj\Debug\netcoreapp2.1\ProjectBlogs.csproj.CopyComplete
+C:\Users\lioncub3\source\repos\ProjectBlogs\ProjectBlogs\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\Blog\Index.g.cshtml.cs
+C:\Users\lioncub3\source\repos\ProjectBlogs\ProjectBlogs\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\_ViewImports.g.cshtml.cs
+C:\Users\lioncub3\source\repos\ProjectBlogs\ProjectBlogs\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\_ViewStart.g.cshtml.cs
+C:\Users\lioncub3\source\repos\ProjectBlogs\ProjectBlogs\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\Blog\Create.g.cshtml.cs
