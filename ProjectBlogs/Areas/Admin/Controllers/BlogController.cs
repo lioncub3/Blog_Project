@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ProjectBlogs.Data;
@@ -14,10 +15,12 @@ namespace ProjectBlogs.Areas.Admin.Controllers
     public class BlogController : Controller
     {
         private BlogsContext db;
+        private readonly IHostingEnvironment _hostingEnvironment;
 
-        public BlogController(BlogsContext db)
+        public BlogController(BlogsContext db, IHostingEnvironment hostingEnvironment)
         {
             this.db = db;
+            _hostingEnvironment = hostingEnvironment;
         }
         public IActionResult Index()
         {
@@ -30,24 +33,44 @@ namespace ProjectBlogs.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(Blog blog)
+        public async Task<IActionResult> Create(Blog blog, IFormFile Photo)
         {
             if (blog.Photo != null)
             {
+                string type = Path.GetExtension(blog.Photo.FileName);
+                string name = $"{DateTime.Now.ToString("ssmmhhddMMyyyy")}{type}";
                 // путь к папке Files
-                string path = "/images/" + blog.Photo.FileName;
+                string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/photos", name);
+
                 // сохраняем файл в папку Files в каталоге wwwroot
-                using (var fileStream = new FileStream("~" + path, FileMode.Create))
+                using (var fileStream = new FileStream(path, FileMode.Create))
                 {
                     await blog.Photo.CopyToAsync(fileStream);
                 }
 
-                blog.PhotoUrl = path;
+                blog.PhotoUrl = "/photos/" + name;
             }
 
             db.Blogs.Add(blog);
             db.SaveChanges();
             return View();
+        }
+
+        [HttpGet]
+        public IActionResult Delete(int Id)
+        {
+            Blog blog = db.Blogs.First(i => i.Id == Id);
+
+            string fullPath = $"{_hostingEnvironment.WebRootPath}{blog.PhotoUrl}";
+            if (System.IO.File.Exists(fullPath))
+            {
+                System.IO.File.Delete(fullPath);
+            }
+
+            db.Blogs.Remove(blog);
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
         }
     }
 }
