@@ -23,23 +23,10 @@ namespace ProjectBlogs.Controllers
             return View(db.Blogs.ToList());
         }
 
-        public IActionResult About()
+        public IActionResult Blog(int Id)
         {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
-        }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
+            ViewBag.Comments = db.Comments.Where(c => c.Id_blog == Id);
+            return View(db.Blogs.First(b => b.Id == Id));
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
