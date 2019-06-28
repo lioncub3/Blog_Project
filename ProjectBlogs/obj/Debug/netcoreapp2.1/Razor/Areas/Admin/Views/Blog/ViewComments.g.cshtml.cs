@@ -162,7 +162,7 @@ using ProjectBlogs.Models;
             WriteLiteral("\r\n                    </td>\r\n                    <td>\r\n                        ");
             EndContext();
             BeginContext(1336, 80, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8109fa3dffbc44f7b238c4d2f1802558", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "09c18c12ebf549c1bd3de36e595f2249", async() => {
                 BeginContext(1406, 6, true);
                 WriteLiteral("Delete");
                 EndContext();

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -35,8 +36,26 @@ namespace ProjectBlogs
 
             string connection = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<BlogsContext>(
-                 options => options.UseMySql(Configuration.GetConnectionString("DefaultConnection"))
+                 options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
              );
+
+            services.ConfigureApplicationCookie(
+                opts => opts.LoginPath = "/Home/Login"
+            );
+
+            services.AddIdentity<IdentityUser, IdentityRole>(
+                        opts => {
+                            opts.Password.RequireDigit = false;
+                            opts.Password.RequireNonAlphanumeric = false;
+                            opts.Password.RequireLowercase = false;
+                            opts.Password.RequireUppercase = false;
+                            opts.Password.RequiredLength = 4;
+
+                            opts.User.RequireUniqueEmail = true;
+                        }
+                    )
+                    .AddEntityFrameworkStores<BlogsContext>()
+                    .AddDefaultTokenProviders();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
@@ -57,6 +76,8 @@ namespace ProjectBlogs
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
+
+            app.UseAuthentication();
 
             app.UseMvc(routes =>
             {

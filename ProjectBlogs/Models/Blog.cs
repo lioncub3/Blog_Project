@@ -30,5 +30,7 @@ namespace ProjectBlogs.Models
         public IFormFile Photo { get; set; }
         [Display(Name = "Адрес фото")]
         public string PhotoUrl { get; set; }
+        [Display(Name = "Автор")]
+        public string Author { get; set; }
     }
 }

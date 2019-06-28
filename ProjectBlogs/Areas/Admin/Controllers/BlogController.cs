@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using ProjectBlogs.Data;
 using ProjectBlogs.Models;
@@ -12,14 +14,17 @@ using ProjectBlogs.Models;
 namespace ProjectBlogs.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize]
     public class BlogController : Controller
     {
+        private UserManager<IdentityUser> userManager;
         private BlogsContext db;
         private readonly IHostingEnvironment _hostingEnvironment;
 
-        public BlogController(BlogsContext db, IHostingEnvironment hostingEnvironment)
+        public BlogController(BlogsContext db, IHostingEnvironment hostingEnvironment, UserManager<IdentityUser> userManager)
         {
             this.db = db;
+            this.userManager = userManager;
             _hostingEnvironment = hostingEnvironment;
         }
         public IActionResult Index()
@@ -52,6 +57,7 @@ namespace ProjectBlogs.Areas.Admin.Controllers
 
                 blog.PhotoUrl = "/photos/" + name;
             }
+            blog.Author = User.Identity.Name;
 
             db.Blogs.Add(blog);
             db.SaveChanges();

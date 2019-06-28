@@ -1,5 +1,6 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+    List<Comment> comments = ViewBag.Comments as List<ProjectBlogs.Models.Comment>;
 }
 
 <!-- w3-content defines a container for fixed size centered content,
@@ -33,6 +34,9 @@ and is wrapped around the whole page content, except for the footer in this exam
                             <p>
                                 @blog.Content
                             </p>
+                            <div class="text-right">
+                                Автор: <em>@blog.Author</em>
+                            </div>
                             <div class="w3-row">
                                 <div class="w3-col m8 s12">
                                     <p><a asp-area="" asp-controller="Home" asp-action="Blog" asp-route-id="@blog.Id" class="w3-button w3-padding-large w3-white w3-border"><b>Читати далі »</b></a></p>

@@ -69,7 +69,7 @@ using ProjectBlogs.Models;
             WriteLiteral("\r\n<h2>Блоги</h2>\r\n\r\n<p>\r\n    ");
             EndContext();
             BeginContext(118, 65, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e50b67fcc5154a82955bef87d9be9206", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a887102714c34fb9aaf0832e785ccd23", async() => {
                 BeginContext(165, 14, true);
                 WriteLiteral("Створити новий");
                 EndContext();
@@ -210,7 +210,7 @@ using ProjectBlogs.Models;
             WriteLiteral("\r\n                    </td>\r\n                    <td>\r\n                        ");
             EndContext();
             BeginContext(1650, 88, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "236eccd50fef4e50ab0a0f125d15c985", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a4fd58b212ae437182c153145817b07f", async() => {
                 BeginContext(1727, 7, true);
                 WriteLiteral("Відгуки");
                 EndContext();
@@ -246,7 +246,7 @@ using ProjectBlogs.Models;
             WriteLiteral("\r\n                        ");
             EndContext();
             BeginContext(1764, 80, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e23865484bcb44c1a2582ec7b5ad8a43", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "03d4f7763ec448fa97009cc267747ec9", async() => {
                 BeginContext(1830, 10, true);
                 WriteLiteral("Редагувати");
                 EndContext();
@@ -282,7 +282,7 @@ using ProjectBlogs.Models;
             WriteLiteral("\r\n                        ");
             EndContext();
             BeginContext(1870, 82, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "47c0f85a8982432399019f1307e96b5b", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "00e7501362de491da17df23c38604250", async() => {
                 BeginContext(1940, 8, true);
                 WriteLiteral("Видалити");
                 EndContext();
